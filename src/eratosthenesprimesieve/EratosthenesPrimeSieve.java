@@ -13,18 +13,27 @@ import java.util.List;
  * @author tawimmer18
  */
 public class EratosthenesPrimeSieve implements PrimeSieve {
+    
+    private final List<Integer> primes;
+    public EratosthenesPrimeSieve(int limit) {
+        primes = getPrimeListWithLimit(limit);
+    }
  
     @Override
     public boolean isPrime(int p) {
-    return false;//TODO
+        return primes.contains(p);
     }
 
     @Override
     public void printPrimes() {
-        //TODO
+        String s = "";
+        for (Integer prime : primes) {
+            s += prime+", ";
+        }
+        System.out.println(s.substring(0, s.length()-2));
     }
     
-    public List<Integer> getPrimeArrayWithLimit(int limit){
+    private List<Integer> getPrimeListWithLimit(int limit){
         List<Integer> included = new ArrayList();
         List<Integer> notIncluded = new ArrayList();
         

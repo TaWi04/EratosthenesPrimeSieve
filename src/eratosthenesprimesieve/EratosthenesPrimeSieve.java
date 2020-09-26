@@ -8,6 +8,8 @@ package eratosthenesprimesieve;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -66,6 +68,13 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
             }
         }
         return additions;
-    }  
+    }
+    
+    public void printPrimesAdditions(){
+       Map<Integer,Integer> additions = getPrimesAdditions();
+        for (Entry<Integer,Integer> addition : additions.entrySet()) {
+            System.out.println(addition.getKey() + " + " + addition.getValue());
+        }
+    }
 }
 

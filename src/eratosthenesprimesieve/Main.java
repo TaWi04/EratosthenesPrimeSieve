@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Anwender
+ * @author tawimmer18
  */
 public class Main {
     private static final String menu ="1 .. Alle Primzahlen bis zu einem Limit ausgeben\n"

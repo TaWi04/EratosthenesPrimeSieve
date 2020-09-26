@@ -7,6 +7,8 @@ package eratosthenesprimesieve;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -15,8 +17,10 @@ import java.util.List;
 public class EratosthenesPrimeSieve implements PrimeSieve {
     
     private final List<Integer> primes;
+    private final int limit;
     public EratosthenesPrimeSieve(int limit) {
         primes = getPrimeListWithLimit(limit);
+        this.limit = limit; 
     }
  
     @Override
@@ -51,5 +55,17 @@ public class EratosthenesPrimeSieve implements PrimeSieve {
         
         return included;
     }
+    
+    private Map<Integer,Integer> getPrimesAdditions(){
+        Map<Integer,Integer> additions = new TreeMap();
+        for (Integer prime : primes) {
+            if(isPrime(limit-prime)){
+                if (!additions.containsKey(limit-prime)) {
+                    additions.put(prime, limit-prime);
+                }
+            }
+        }
+        return additions;
+    }  
 }
 
